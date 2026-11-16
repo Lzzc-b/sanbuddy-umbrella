@@ -1,5 +1,17 @@
 # 硬件原型设计说明
 
+## 精简版 V4 更新：两种伞型与 CR2032
+
+![手动与半自动智能雨伞硬件概念图](../assets/hardware-prototype-v3.png)
+
+![半自动智能伞柄爆炸概念图](../assets/hardware-exploded-v2.png)
+
+新版图由内置 imagegen 生成。手动版与半自动版共用 BLE、蜂鸣器、LED、无源 NFC 与 CR2032 模块；半自动版需把电子件放在伞柄下部，避开弹簧通道。电池仓设想为免工具旋转结构，伞套附 1 颗备用 CR2032。图中二维码是**不可扫描的视觉占位**。
+
+爆炸图只是装配概念。接头锁止、密封圈尺寸、PCB 固定、电池仓防水、IP67 和 12–18 个月续航都尚未验证。无源 NFC 和印刷二维码在电池耗尽后仍能被使用；BLE、蜂鸣器与 LED 则不能在完全断电时工作。
+
+生成提示词摘要：`manual and semi-automatic folding smart umbrellas with detachable handle, tool-free CR2032 cap, spare cell in umbrella sleeve, LED, buzzer, NFC and QR`；`exploded semi-automatic handle with separated spring channel, sealed lower electronics bay, BLE PCB, piezo buzzer, LED, twist-open CR2032 cartridge, passive NFC and QR`。生成方式：内置 imagegen。
+
 ## 新版整伞原型与伞柄爆炸图
 
 ![新版智能雨伞硬件原型图](../assets/hardware-prototype-v2.png)
