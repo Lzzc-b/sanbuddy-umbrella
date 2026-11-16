@@ -6,7 +6,7 @@
 
 ## 立即运行
 
-**推荐双击 `sanbuddy-prototype-v4-improved.html`**：这是根据新版 V4 方案完善的单文件交互原型，两张硬件图已内嵌，离线打开也能显示。`index.html` 是之前的简化演示版。也可在项目目录运行 `python -m http.server 8000` 后打开 `http://localhost:8000/sanbuddy-prototype-v4-improved.html`。不需要安装依赖。
+**推荐双击 `sanbuddy-prototype-v4-improved.html`**：这是根据新版 V4 方案完善的单文件交互原型，三张硬件图已内嵌，离线打开也能显示。`index.html` 是之前的简化演示版。也可在项目目录运行 `python -m http.server 8000` 后打开 `http://localhost:8000/sanbuddy-prototype-v4-improved.html`。不需要安装依赖。
 
 ## 演示顺序（约 3 分钟）
 
@@ -32,10 +32,12 @@
 
 | 路径 | 用途 |
 | --- | --- |
-| `sanbuddy-prototype-v4-improved.html` | 新版 V4 单文件交互原型，内嵌两张硬件图 |
+| `sanbuddy-prototype-v4-improved.html` | 新版 V4 单文件交互原型，内嵌三张硬件图 |
 | `index.html`、`style.css`、`script.js` | 之前的简化演示版 |
 | `assets/hardware-concept.png` | AI 生成的硬件外观概念图 |
 | `assets/hardware-diagram.svg` | 可编辑硬件结构示意图 |
+| `assets/hardware-prototype-v2.png` | 新版整伞硬件原型图 |
+| `assets/hardware-exploded-v1.png` | 伞柄爆炸概念图 |
 | `docs/plan.md` | 需求、问题、开发步骤和验收标准 |
 | `docs/hardware.md` | 硬件组成及实现边界 |
 | `docs/demo.md` | 展示讲稿与测试记录模板 |

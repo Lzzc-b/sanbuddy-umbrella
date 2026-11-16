@@ -1,5 +1,17 @@
 # 硬件原型设计说明
 
+## 新版整伞原型与伞柄爆炸图
+
+![新版智能雨伞硬件原型图](../assets/hardware-prototype-v2.png)
+
+![智能伞柄爆炸概念图](../assets/hardware-exploded-v1.png)
+
+新版两图由内置 imagegen 生成，均为概念渲染。图中的二维码是视觉占位，**不能扫描用于真实归还**。爆炸图表达部件组成与大致装配顺序；PCB 布线、接头锁止、密封圈尺寸、电池更换方式及防水等级均未完成工程验证。
+
+生成提示词摘要：`realistic product render of folding smart umbrella with detachable handle, LED, buzzer grille, NFC and QR return sticker`；`isometric exploded view of smart umbrella handle with detachable shaft connector, O-ring, BLE PCB, piezo buzzer, LED, coin cell, passive NFC sticker, QR sticker and lower shell, no motor or GPS`。
+
+## 原版概念图与结构示意
+
 ![智能雨伞硬件外观概念图](../assets/hardware-concept.png)
 
 上图为 AI 生成的**外观概念渲染**，只用于展示设计方向；连接器尺寸、材料、内部空间和防水性能未经工程验证。生成提示词：`realistic studio render of a compact folded black umbrella and detachable matte charcoal ergonomic handle; discreet LED, NFC tap symbol, small speaker port; inset open umbrella; no text or watermark`。生成方式：内置 imagegen。
