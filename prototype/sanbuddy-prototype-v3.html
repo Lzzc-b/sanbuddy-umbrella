@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#173c35">
-  <title>伞伴触感 · MVP对齐版原型</title>
+  <title>伞伴 · 主动智能体原型 V3</title>
   <style>
     :root {
       --ink: #18342f;
@@ -159,6 +159,26 @@
     .sub-btn { padding: 8px 12px; border-radius: 10px; border: 0; font-size: 11px; font-weight: 700; cursor: pointer; }
     .sub-btn.primary { background: var(--lime); color: var(--green); }
     .sub-btn.ghost { background: rgba(255,255,255,.12); color: white; border: 1px solid rgba(255,255,255,.2); }
+    /* V3: Agent heartbeat & proactive presence */
+    @keyframes agentBreathe { 0%, 100% { opacity: .4; transform: scale(.9); } 50% { opacity: 1; transform: scale(1.1); } }
+    @keyframes statusPulse { 0% { box-shadow: 0 0 0 0 rgba(105,168,91,.4); } 70% { box-shadow: 0 0 0 6px rgba(105,168,91,0); } 100% { box-shadow: 0 0 0 0 rgba(105,168,91,0); } }
+    .agent-heartbeat { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); animation: agentBreathe 2.4s ease-in-out infinite; flex: 0 0 auto; }
+    .proactive-status { margin: 0 16px 14px; padding: 10px 14px; border-radius: 14px; background: #eef6e8; border: 1px solid #dce7d1; color: #3f6440; font-size: 10px; display: flex; align-items: center; gap: 8px; position: relative; overflow: hidden; }
+    .proactive-status::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #69a85b; animation: statusPulse 2s infinite; }
+    .proactive-status .icon { width: 14px; height: 14px; flex: 0 0 auto; }
+    .agent-log { margin: 0 16px 14px; }
+    .agent-log-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .agent-log-header h3 { font-size: 13px; margin: 0; display: flex; align-items: center; gap: 6px; }
+    .agent-log-header span { color: var(--muted); font-size: 10px; }
+    .log-entry { display: flex; gap: 10px; padding: 10px 14px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; margin-bottom: 6px; align-items: flex-start; animation: screenIn .3s ease; }
+    .log-entry:last-child { margin-bottom: 0; }
+    .log-time { font-size: 10px; font-weight: 800; color: #547046; min-width: 36px; padding-top: 1px; }
+    .log-body strong { display: block; font-size: 11px; margin-bottom: 2px; }
+    .log-body p { margin: 0; color: var(--muted); font-size: 9px; line-height: 1.5; }
+    .log-tag { display: inline-block; padding: 2px 6px; border-radius: 6px; font-size: 8px; font-weight: 700; margin-top: 4px; }
+    .log-tag.auto { background: #eef6e8; color: #3f6440; }
+    .log-tag.confirm { background: #fff4dc; color: #795d26; }
+    .typing-cursor::after { content: "▍"; animation: agentBreathe 1s step-end infinite; color: var(--lime); margin-left: 2px; }
     .umbrella-title { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
     .umbrella-title strong { font-size: 15px; }
     .status-pill { display: inline-flex; align-items: center; gap: 5px; padding: 5px 8px; border-radius: 99px; background: #eef6e8; color: #4d753b; font-size: 9px; font-weight: 700; }
@@ -463,23 +483,23 @@
       <div class="brand-mark"><svg class="icon"><use href="#i-umbrella"/></svg></div>
       <div><div class="brand-name">伞伴</div><div class="brand-sub">SANBUDDY MVP</div></div>
     </div>
-    <div class="prototype-badge">MVP对齐版 · 蜂鸣器+LED+NFC</div>
+    <div class="prototype-badge">V3 主动感知增强版 · MVP硬件</div>
   </header>
 
   <section class="hero">
     <div>
-      <div class="eyebrow">Sound + Light + NFC Agent</div>
-      <h1>听得见、看得见，<br><span>也能安心找回。</span></h1>
+      <div class="eyebrow">Proactive Umbrella Agent</div>
+      <h1>不用你记得带伞，<br><span>我来提醒你、替你兜底。</span></h1>
     </div>
     <div class="hero-note">
-      <strong>MVP务实交互方案。</strong>
-      寻伞靠蜂鸣器+LED闪烁确认身份；NFC标签配合醒目贴纸引导送回；订阅兜底服务让丢失不再是终点。
+      <strong>一把主动照看你的伞。</strong>
+      智能体持续理解天气、日程与习惯，在你需要之前就已行动；MVP用蜂鸣器+LED+NFC实现可靠反馈，用订阅服务承接丢失后的安心。
     </div>
   </section>
 
   <main class="prototype-layout">
     <section class="device-column" aria-label="可交互手机原型">
-      <div class="device-caption"><span>01 / MVP对齐版原型</span><span>点击底部导航体验</span></div>
+      <div class="device-caption"><span>01 / 主动智能体原型 V3</span><span>停留5秒感受被动触发</span></div>
       <div class="device" id="device">
         <div class="statusbar">
           <span id="statusTime">17:46</span>
@@ -508,7 +528,7 @@
                 <button class="text-button weather-action" id="broughtUmbrella">已带</button>
               </div>
             </div>
-            <div class="privacy-strip" id="proactiveStatus"><svg class="icon"><use href="#i-sparkles"/></svg>主动模式运行中 · 已完成天气、行程、伞的位置与应急能力检查</div>
+            <div class="proactive-status" id="proactiveStatus"><span class="agent-heartbeat"></span><svg class="icon"><use href="#i-sparkles"/></svg><span id="proactiveText">主动模式运行中 · 正在持续照看你的出行</span></div>
 
             <div class="section-head"><h3>我的雨伞</h3><button class="text-button" data-nav="location">位置记录 ›</button></div>
             <div class="card umbrella-card">
@@ -559,7 +579,16 @@
               <button class="scenario-card" id="lostStandby"><span class="scenario-icon"><svg class="icon"><use href="#i-umbrella"/></svg></span><strong>准备一把备用伞</strong><span>共享伞、同款购买或家里那把旧伞</span></button>
             </div>
 
-            <div class="section-head"><h3>智能体动态</h3><span>刚刚</span></div>
+            <div class="agent-log">
+              <div class="agent-log-header"><h3><span class="agent-heartbeat"></span>智能体今日行为</h3><span>自动执行 · 无需操作</span></div>
+              <div id="agentLogEntries">
+                <div class="log-entry"><div class="log-time">17:50</div><div class="log-body"><strong>安排了下班带伞提醒</strong><p>检测到18:00降雨概率80%，已在你通常离开公司前20分钟设置震动提示</p><span class="log-tag auto">自动执行</span></div></div>
+                <div class="log-entry"><div class="log-time">16:42</div><div class="log-body"><strong>记录了伞的最后位置</strong><p>蓝牙断开时保存了公司一层大堂的位置快照，用于后续寻伞参考</p><span class="log-tag auto">自动执行</span></div></div>
+                <div class="log-entry"><div class="log-time">07:40</div><div class="log-body"><strong>完成了出门前检查</strong><p>天气有雨、伞在手边、电量充足 → 未打扰你，仅记录状态</p><span class="log-tag auto">静默完成</span></div></div>
+              </div>
+            </div>
+
+            <div class="section-head"><h3>智能体洞察</h3><span>持续学习</span></div>
             <div class="card insight-card">
               <svg class="icon"><use href="#i-sparkles"/></svg>
               <div><strong>我学会了你的「公司」常驻点</strong><p>近 5 周到访 18 次，通常工作日 09:02 到达。之后只在合适的时间提醒，不再每次弹窗。</p></div>
@@ -620,7 +649,14 @@
               <div class="schedule-item"><div class="schedule-time">17:50</div><div class="schedule-copy"><strong>主动安排下班带伞提醒</strong><span>根据平时离开公司的时间动态调整</span></div></div>
               <div class="schedule-item"><div class="schedule-time">持续</div><div class="schedule-copy"><strong>主动抑制重复打扰</strong><span>根据忽略与反馈降低非必要提醒频率</span></div></div>
             </div>
-            <button class="primary-button demo-button" id="runAgentCheck"><svg class="icon"><use href="#i-sparkles"/></svg>演示一次主动判断</button>
+            <div class="agent-log" style="margin: 16px 0 0;">
+              <div class="agent-log-header"><h3><span class="agent-heartbeat"></span>实时行为日志</h3><span>智能体正在后台工作</span></div>
+              <div id="remindersLogEntries">
+                <div class="log-entry"><div class="log-time">持续</div><div class="log-body"><strong>抑制重复打扰</strong><p>根据你过去的忽略与反馈，已降低非必要提醒频率</p><span class="log-tag auto">自动执行</span></div></div>
+                <div class="log-entry"><div class="log-time">17:50</div><div class="log-body"><strong>安排下班带伞提醒</strong><p>根据平时离开公司的时间动态调整，将在17:50震动提示</p><span class="log-tag auto">自动执行</span></div></div>
+                <div class="log-entry"><div class="log-time">07:40</div><div class="log-body"><strong>完成出门检查</strong><p>有雨且伞未携带时，手机或手表双短震；今日已带好，静默通过</p><span class="log-tag auto">静默完成</span></div></div>
+              </div>
+            </div>
             <button class="secondary-button demo-button" id="simulateLeave" style="margin-top:9px">模拟「人离开，伞还在公司」</button>
           </section>
 
@@ -628,11 +664,11 @@
             <div class="app-header"><div><h2>设备与隐私</h2><p>你始终拥有数据的控制权</p></div><svg class="icon" style="color:#75857b"><use href="#i-settings"/></svg></div>
             
             <div class="sub-card">
-              <span class="sub-badge">PRO 会员</span>
-              <h4>丢后兜底 · 安心保障</h4>
-              <p>确认真正丢失时，享折价换购新伞、免运费补发权益。新伞柄模块自动接续账号。</p>
+              <span class="sub-badge">PRO 会员 · 智能体已就绪</span>
+              <h4>丢后兜底 · 智能体替你承接</h4>
+              <p>当智能体判断伞确实找不回时，会自动为你准备折价换购方案与免运费补发权益。你只需确认，其余交给它。</p>
               <div class="sub-actions">
-                <button class="sub-btn primary" id="viewSubscription">查看权益详情</button>
+                <button class="sub-btn primary" id="viewSubscription">查看智能体能为你做什么</button>
                 <button class="sub-btn ghost" id="manageSubscription">管理订阅</button>
               </div>
             </div>
@@ -653,7 +689,7 @@
             <div class="card settings-list">
               <button class="setting-row" id="clearData"><svg class="icon" style="color:var(--red)"><use href="#i-trash"/></svg><div class="setting-copy"><strong class="danger-text">清除学习数据</strong><span>删除常驻点与提醒习惯，保留设备绑定</span></div><svg class="icon" style="width:14px"><use href="#i-chevron"/></svg></button>
             </div>
-            <p class="version">伞伴 MVP对齐版 v0.4 · 不连接真实设备</p>
+            <p class="version">伞伴 主动智能体 V3 · MVP硬件 + 主动感知增强 · 不连接真实设备</p>
           </section>
 
           <section class="screen" data-screen="emergency" hidden>
@@ -690,7 +726,7 @@
     </section>
 
     <aside class="blueprint" aria-label="产品落地蓝图">
-      <div class="blueprint-intro"><div class="label">MVP ALIGNED BLUEPRINT</div><h2>务实硬件，闭环服务</h2><p>采用成熟蜂鸣器+LED方案确保MVP按期交付；通过订阅兜底服务构建商业壁垒；数据架构透明化赢得用户信任。</p></div>
+      <div class="blueprint-intro"><div class="label">PROACTIVE AGENT V3 BLUEPRINT</div><h2>MVP硬件不变，智能体感知升级</h2><p>蜂鸣器+LED+NFC是硬件底线；但"主动性"是软件体验——通过心跳动画、行为日志、被动触发和状态轮播，让用户时刻感受到"它正在工作"，而非"它是一个等待点击的工具"。</p></div>
 
       <section class="panel">
         <div class="panel-heading"><h3>MVP四项核心能力</h3><span>体验闭环</span></div>
@@ -732,7 +768,7 @@
     </aside>
   </main>
 
-  <footer class="page-footer"><span>伞伴 SANBUDDY · MVP对齐版原型</span><span>天气、位置、联系人、库存与服务数据均为虚构；不会访问真实硬件、下单、叫车或发送求助。</span></footer>
+  <footer class="page-footer"><span>伞伴 SANBUDDY · V3 主动感知增强版</span><span>天气、位置、联系人、库存与服务数据均为虚构；不会访问真实硬件、下单、叫车或发送求助。停留首页5秒可体验被动触发。</span></footer>
 
   <script>
     (() => {
@@ -1221,6 +1257,51 @@
       updateTime();
       setInterval(updateTime, 30000);
       updateRuleCount();
+
+      // V3: Proactive presence - passive trigger simulation
+      const proactiveMessages = [
+        '刚检查了伞的蓝牙连接 ✓',
+        '已确认今日降雨概率更新为 82%',
+        '检测到你在公司常驻点，暂不打扰',
+        '应急联系人状态正常，随时可用',
+        '已抑制 2 条非必要提醒',
+        '伞柄电量 82%，预计还可使用 47 天'
+      ];
+      let proactiveIndex = 0;
+      let firstVisitDone = false;
+
+      // First passive toast after 5 seconds on home screen
+      setTimeout(() => {
+        if (!firstVisitDone && !document.querySelector('[data-screen="home"]').hidden) {
+          showToast('🟢 ' + proactiveMessages[0]);
+          firstVisitDone = true;
+          proactiveIndex = 1;
+        }
+      }, 5000);
+
+      // Rotate proactive status text every 8 seconds
+      const proactiveTextEl = document.getElementById('proactiveText');
+      setInterval(() => {
+        if (proactiveTextEl && !document.querySelector('[data-screen="home"]').hidden) {
+          const msg = proactiveMessages[proactiveIndex % proactiveMessages.length];
+          proactiveTextEl.textContent = msg;
+          proactiveIndex++;
+        }
+      }, 8000);
+
+      // Simulate new log entry appearing after 12 seconds
+      setTimeout(() => {
+        const logContainer = document.getElementById('agentLogEntries');
+        if (logContainer && !document.querySelector('[data-screen="home"]').hidden) {
+          const now = new Date();
+          const timeStr = now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit', hour12: false });
+          const newEntry = document.createElement('div');
+          newEntry.className = 'log-entry';
+          newEntry.innerHTML = `<div class="log-time">${timeStr}</div><div class="log-body"><strong>主动更新了降雨预报</strong><p>18:00–19:00 降雨概率从 75% 上调至 82%，带伞提醒保持不变</p><span class="log-tag auto">自动执行</span></div>`;
+          logContainer.insertBefore(newEntry, logContainer.firstChild);
+          showToast('🟢 智能体刚完成一次天气复核');
+        }
+      }, 12000);
     })();
   </script>
 </body>
