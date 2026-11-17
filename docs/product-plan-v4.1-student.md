@@ -227,13 +227,4 @@
 
 ---
 
-## 参考文献
-
-[1] 百度百科·Oombrella. https://baike.baidu.com/item/Oombrella/19522336  
-[2] 搜狗百科·Davek Alert Umbrella. https://baike.sogou.com/v141392557.htm  
-[3] 小米官网·Xiaomi Tag. https://www.mi.com/prod/xiaomi-tag  
-[4] X技术·智能蓝牙防丢伞专利. https://www.xjishu.com/zhuanli/04/201720466993.html  
-
----
-
 *V4.1 学生项目版 · 基于 V4 精简方案修订 · 好伞优先 · 服务按需 · 备用电池*
