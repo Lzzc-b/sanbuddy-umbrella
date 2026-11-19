@@ -45,7 +45,9 @@
 2. 连接仓库 `Lzzc-b/sanbuddy-umbrella`。  
 3. Framework = **None**；Build command = **留空**；Build output directory = **`prototype`**。  
 4. 入口为 `prototype/index.html`（跳转 V4 原型）。  
-5. 把链接写进 README 后再提交一次。
+5. 把链接写进 README 后再提交一次。  
+
+**当前在线地址：** https://sanbuddy-umbrella.pages.dev/
 
 ### 2.3 PWA
 
