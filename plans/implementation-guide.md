@@ -33,9 +33,10 @@
 | A6 | **确认 / 小改交互**<br>缺什么补什么；现有 V4 已覆盖主流程则可少改 | 可打开的原型 | `feat: …`（有改动时） |
 | A7 | **加 PWA**<br>确认 `manifest.json`、图标、页面已引用；完整「添加到主屏幕」需 HTTPS（见 A8） | PWA 配置 | `feat: 添加 PWA 支持` |
 | A8 | **部署 Cloudflare Pages**<br>见 §2.2；手机 4G 打开验证 | 公网链接 | `docs: 记录 Pages 部署链接` |
-| A9 | **更新 README**<br>Pages 链接、本地打开、PWA、模拟边界、验收点 | README | `docs: README 增加体验入口` |
-| A10 | **规范用 Git**<br>改前 `status`，提交前看 `diff`；重要提交后核对无夹带无关文件 | 清晰历史 | 规范 message |
-| A11 | **做一次可控回退演练**<br>故意小改 → `git revert` 回退并推送（保留历史，不 force） | 一条 revert 记录 | `revert: …` |
+| A9 | **生成 H5 体验二维码（可选）**<br>把 Pages 链接做成普通二维码；**必须标注「H5 演示，非微信小程序」** | `prototype/qrcode-h5.png` | `assets: 添加 H5 体验二维码` |
+| A10 | **更新 README**<br>Pages 链接、二维码、本地打开、PWA、模拟边界、验收点 | README | `docs: README 增加体验入口` |
+| A11 | **规范用 Git**<br>改前 `status`，提交前看 `diff`；重要提交后核对无夹带无关文件 | 清晰历史 | 规范 message |
+| A12 | **做一次可控回退演练**<br>故意小改 → `git revert` 回退并推送（保留历史，不 force） | 一条 revert 记录 | `revert: …` |
 
 ### 2.2 Cloudflare Pages
 
@@ -47,7 +48,9 @@
 4. 入口为 `prototype/index.html`（跳转 V4 原型）。  
 5. 把链接写进 README 后再提交一次。  
 
-**当前在线地址：** https://sanbuddy-umbrella.pages.dev/
+**当前在线地址：** https://sanbuddy-umbrella.pages.dev/  
+
+**体验二维码：** [`prototype/qrcode-h5.png`](../prototype/qrcode-h5.png)（扫码打开上述 H5；**非微信小程序**）。
 
 ### 2.3 PWA
 
@@ -150,6 +153,7 @@ sanbuddy-umbrella/
     ├── index.html
     ├── sanbuddy-prototype-v4.html
     ├── manifest.json
+    ├── qrcode-h5.png                  # H5 体验二维码（非小程序）
     └── icons/
 ```
 

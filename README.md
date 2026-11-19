@@ -110,10 +110,28 @@
 | [`plans/implementation-guide.md`](plans/implementation-guide.md) | 执行手册（含 Cloudflare Pages / PWA） |
 | [`prototype/sanbuddy-prototype-v4.html`](prototype/sanbuddy-prototype-v4.html) | 可交互原型（V4，本地双击或 Pages 打开） |
 | [`prototype/manifest.json`](prototype/manifest.json) | PWA 配置 |
+| [`prototype/qrcode-h5.png`](prototype/qrcode-h5.png) | H5 体验二维码（非微信小程序） |
+
+### 快速开始
+
+1. 打开 https://sanbuddy-umbrella.pages.dev/ ，或本地打开 `prototype/index.html`
+2. 走完：引导 → 首页 → 寻伞 → 电量（我的）→ 失物
+3. （可选）手机浏览器「添加到主屏幕」体验 PWA
+
+### 本阶段验收约定
+
+- [x] 在线 Pages 可打开主流程
+- [x] 文案标明模拟数据 / 非实时定位边界
+- [x] PWA 可添加到手机主屏幕
+- [ ] 同伴试跑反馈已记录（脱敏后入库）
 
 ### 体验入口
 
 - **在线（推荐）：** https://sanbuddy-umbrella.pages.dev/
+- **体验二维码（H5 演示，非微信小程序）：**
+
+  ![伞伴 H5 体验二维码](prototype/qrcode-h5.png)
+
 - **本地：** 打开 [`prototype/index.html`](prototype/index.html) 或 `sanbuddy-prototype-v4.html`
 - **Cloudflare Pages：** 已部署；源目录 `prototype`，Build 留空（详见实施指南）
 - **PWA：** 已在手机浏览器验证可「添加到主屏幕」（打开在线链接后添加）
