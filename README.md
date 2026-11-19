@@ -108,6 +108,8 @@
 | --- | --- |
 | [`plans/product-plan-v4.1-student.md`](plans/product-plan-v4.1-student.md) | 完整产品方案（学生项目版） |
 | [`plans/implementation-guide.md`](plans/implementation-guide.md) | 执行手册（含 Cloudflare Pages / PWA） |
+| [`AGENTS.md`](AGENTS.md) | 协作者 / AI 仓库约定 |
+| [`LICENSE`](LICENSE) | MIT |
 | [`prototype/sanbuddy-prototype-v4.html`](prototype/sanbuddy-prototype-v4.html) | 可交互原型（V4，本地双击或 Pages 打开） |
 | [`prototype/manifest.json`](prototype/manifest.json) | PWA 配置 |
 | [`prototype/qrcode-h5.png`](prototype/qrcode-h5.png) | H5 体验二维码（非微信小程序） |
