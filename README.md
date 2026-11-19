@@ -116,7 +116,7 @@
 - **在线（推荐）：** https://sanbuddy-umbrella.pages.dev/
 - **本地：** 打开 [`prototype/index.html`](prototype/index.html) 或 `sanbuddy-prototype-v4.html`
 - **Cloudflare Pages：** 已部署；源目录 `prototype`，Build 留空（详见实施指南）
-- **PWA：** 手机浏览器打开在线链接后，可「添加到主屏幕」
+- **PWA：** 已在手机浏览器验证可「添加到主屏幕」（打开在线链接后添加）
 - **边界：** 天气 / 蓝牙 / 位置 / 电量均为模拟，不连接真实设备
 
 > 建议：每完成一小步就提交一次 Git，保留真实过程时间线。
