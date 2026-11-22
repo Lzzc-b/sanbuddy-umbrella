@@ -833,6 +833,7 @@
       function feedbackReminder(type, action) {
         if (action === 'wrong') reminderState.pausedUntil[type] = Date.now() + 24 * 60 * 60 * 1000;
         if (action === 'ignore') reminderState.ignored[type] = (reminderState.ignored[type] || 0) + 1;
+        if (action === 'brought') reminderState.ignored[type] = 0;
         if (action === 'mute') reminderState.pausedUntil[type] = Date.now() + 2 * 60 * 60 * 1000;
         reminderState.history.push({ type, action, at: new Date().toISOString() });
       }
@@ -978,6 +979,7 @@
         work: { name: '公司', detail: '已确认 · 18 次到访', icon: 'building', quiet: '工作日作息已学习' },
         gym: { name: '健身房', detail: '学习中 · 已观察 3 次', icon: 'activity', quiet: '再观察 2 次后请你确认' }
       };
+      let learningDataCleared = false;
       document.querySelectorAll('[data-place]').forEach(button => {
         button.addEventListener('click', () => {
           const place = placeData[button.dataset.place];
@@ -1018,8 +1020,8 @@
         document.getElementById('alertFind').addEventListener('click', () => { setUmbrellaSeeking(true); showToast(batteryLevel < 5 ? '电量不足，声光寻伞暂停' : '已启动寻伞演示'); });
         document.getElementById('alertDismiss').addEventListener('click', event => {
           event.target.closest('.dynamic-alert').remove();
-          feedbackReminder('防丢', 'ignore');
-          showToast('已忽略本次提醒，并记录你的反馈');
+          feedbackReminder('防丢', 'brought');
+          showToast('已记录：伞已带好，本次提醒已关闭');
         });
         document.querySelectorAll('[data-alert-feedback]').forEach(button => button.addEventListener('click', () => { const action = button.dataset.alertFeedback; feedbackReminder('防丢', action); button.closest('.dynamic-alert').remove(); showToast(action === 'wrong' ? '位置不准：此类提醒暂停 24 小时' : '此类提醒已静音 2 小时'); }));
         showToast('已生成一次主动防丢提醒演示');
@@ -1230,7 +1232,7 @@
       document.getElementById('exportData').addEventListener('click', () => {
         const settings = {};
         document.querySelectorAll('input[data-label]').forEach(input => { settings[input.id] = input.checked; });
-        const data = { product: '伞伴概念原型', exportedAt: new Date().toISOString(), demo: true, umbrella: { name: '伞伴 01', type: document.getElementById('umbrellaType').value, battery: batteryLevel, batteryType: 'CR2032', lastSeen: '公司 · 一层大堂', lastConnectedAt: '演示时间 16:42' }, places: placeData, settings };
+        const data = { product: '伞伴概念原型', exportedAt: new Date().toISOString(), demo: true, umbrella: { name: '伞伴 01', type: document.getElementById('umbrellaType').value, battery: batteryLevel, batteryType: 'CR2032', lastSeen: '公司 · 一层大堂', lastConnectedAt: '演示时间 16:42' }, places: learningDataCleared ? {} : placeData, settings };
         const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
@@ -1246,6 +1248,15 @@
           <p class="sheet-copy">这会删除原型中的常驻点、到访规律与提醒习惯，但保留设备绑定。此操作演示不可撤销。</p>
           <div class="sheet-actions"><button class="primary-button danger-button" id="confirmClear">确认清除</button><button class="secondary-button" data-close-sheet>保留数据</button></div>`);
         document.getElementById('confirmClear').addEventListener('click', () => {
+          learningDataCleared = true;
+          Object.keys(placeData).forEach(key => {
+            placeData[key].detail = '待学习 · 0 次到访';
+            placeData[key].quiet = '到访规律已清除';
+          });
+          reminderState.daily = {};
+          reminderState.ignored = {};
+          reminderState.pausedUntil = {};
+          reminderState.history = [];
           document.querySelectorAll('[data-place]').forEach((card, index) => {
             const state = card.querySelector('.learning-state');
             state.innerHTML = '<b style="color:#8a968f">待学习</b><small>0 次到访</small>';
