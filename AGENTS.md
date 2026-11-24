@@ -17,6 +17,7 @@
 | `README.md` | 产品概览、快速开始、验收约定、体验入口 |
 | `plans/product-plan-v4.1-student.md` | 学生版产品方案 |
 | `plans/implementation-guide.md` | 分阶段执行手册 |
+| `plans/hardware-design-input-v1.md` | 远期一体式伞柄工程设计输入，尚无施工图或样机 |
 | `prototype/` | 静态 H5 + PWA；入口 `index.html` → V4 原型 |
 | `LICENSE` | MIT |
 | `AGENTS.md` | 本约定 |
@@ -50,4 +51,5 @@
 - 近场靠 BLE 声光（约十米到几十米级）；更远仅远期（找物网络等），本学期不宣称已具备  
 - 原型中的蓝牙 / 天气 / 通知 / 电量 / 位置为**模拟数据**  
 - 手柄电子以密封无开孔为方向；IP67 未实测不宣称  
+- 一体式伞柄仅有工程设计输入；本学期市售标签验证与未来一体式样机不得混写为同一项成果
 - H5 二维码标注：**非微信小程序**

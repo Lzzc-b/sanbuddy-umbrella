@@ -7,7 +7,7 @@
 围绕两件小事展开：**出门忘带伞**，以及 **伞落在别处找不回**。  
 当前为学生项目版：**方案 + 可交互原型 + 真伞最小验证 + Git 过程留痕**，本阶段不开展真实收费。
 
-[产品方案 V4.1](plans/product-plan-v4.1-student.md) · [实施指南](plans/implementation-guide.md) · [一体式伞柄施工说明](plans/hardware-build-spec-v1.md) · [在线体验](https://sanbuddy-umbrella.pages.dev/) · [可交互原型](prototype/sanbuddy-prototype-v4.html)
+[产品方案 V4.1](plans/product-plan-v4.1-student.md) · [本学期实施指南](plans/implementation-guide.md) · [远期伞柄工程设计输入](plans/hardware-design-input-v1.md) · [在线体验](https://sanbuddy-umbrella.pages.dev/) · [可交互原型](prototype/sanbuddy-prototype-v4.html)
 
 ---
 
@@ -45,6 +45,8 @@
 
 ## 🔧 硬件要点
 
+以下为[远期一体式伞柄的工程设计输入](plans/hardware-design-input-v1.md)，对应[外观概念图](prototype/hardware/concept.jpg)和[爆炸示意图](prototype/hardware/exploded.jpg)；目前没有该伞柄的施工图或样机。
+
 ```text
 伞面 / 伞骨 / 伞杆     → 挡雨与结构（优先级最高）
 可拆卸智能伞柄         → BLE · 蜂鸣器 · LED · 无源 NFC · CR2032
@@ -55,7 +57,7 @@
 - 🎯 续航 / IP67：设计目标，需样机实测  
 - 🔁 归还入口：NFC 与二维码指向同一匿名联系页（本身不定位）
 
-本学期硬件路径：**真伞 + 市售 BLE 防丢标签**，不自研主板。
+本学期按[实施指南](plans/implementation-guide.md)计划用**真伞 + 市售 BLE 防丢标签**做最小验证，不自研主板；仓库尚无真伞实测记录。
 
 ---
 
@@ -111,7 +113,7 @@
 | --- | --- |
 | [`plans/product-plan-v4.1-student.md`](plans/product-plan-v4.1-student.md) | 完整产品方案（学生项目版） |
 | [`plans/implementation-guide.md`](plans/implementation-guide.md) | 执行手册（含 Cloudflare Pages / PWA） |
-| [`plans/hardware-build-spec-v1.md`](plans/hardware-build-spec-v1.md) | 一体式伞柄的工程设计输入与施工、验收说明（尚非已完成样机） |
+| [`plans/hardware-design-input-v1.md`](plans/hardware-design-input-v1.md) | 远期一体式伞柄的工程设计输入与测试计划；尚无施工图或样机 |
 | [`AGENTS.md`](AGENTS.md) | 协作者 / AI 仓库约定 |
 | [`LICENSE`](LICENSE) | MIT |
 | [`prototype/sanbuddy-prototype-v4.html`](prototype/sanbuddy-prototype-v4.html) | 可交互原型（V4，本地双击或 Pages 打开） |
