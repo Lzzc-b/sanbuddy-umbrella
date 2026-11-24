@@ -601,7 +601,7 @@
               <button class="plan-row" data-rain-plan="shelter"><span class="plan-index">1</span><div><strong>就近避雨</strong><small>室内连廊、商场、地铁口 · 最近约 120 米</small></div><svg class="icon"><use href="#i-chevron"/></svg></button>
               <button class="plan-row" data-rain-plan="borrow"><span class="plan-index">2</span><div><strong>借用共享伞</strong><small>附近 3 个借伞点 · 库存与营业状态需联网确认</small></div><svg class="icon"><use href="#i-chevron"/></svg></button>
               <button class="plan-row" data-rain-plan="home"><span class="plan-index">3</span><div><strong>安全回家</strong><small>打车或请亲友送伞 · 生成含预计到家时间的行程卡片</small></div><svg class="icon"><use href="#i-chevron"/></svg></button>
-              <button class="plan-row plan-alert" data-rain-plan="emergency"><span class="plan-index">4</span><div><strong>雨势变大</strong><small>直接打开应急助手，必要时长按求助</small></div><svg class="icon"><use href="#i-chevron"/></svg></button>
+              <button class="plan-row plan-alert" data-rain-plan="emergency"><span class="plan-index">4</span><div><strong>雨势变大</strong><small>直接在手机上打开应急助手</small></div><svg class="icon"><use href="#i-chevron"/></svg></button>
               <p class="plan-note"><strong>演示数据说明：</strong>库存、营业状态、借伞凭据与安全行程卡片均为虚构示例；原型不会真实下单、叫车、扣款或发送位置。</p>
             </div>
 
@@ -708,11 +708,11 @@
 
           <section class="screen" data-screen="emergency" hidden>
             <div class="app-header"><button class="icon-button back-button" data-nav="home"><svg class="icon"><use href="#i-arrow-left"/></svg>返回</button><button class="icon-button" id="emergencySettings" aria-label="应急说明"><svg class="icon"><use href="#i-settings"/></svg></button></div>
-            <div class="sos-hero"><div class="sos-symbol"><svg class="icon"><use href="#i-shield"/></svg></div><h3>辅助联络助手</h3><p>平时主动检查联络能力；需要时长按伞柄触发，用倒计时确认意图，协助你快速联系预设联系人。<strong>仅辅助联络，不替代专业救援。紧急情况请拨打110/120。</strong></p></div>
+            <div class="sos-hero"><div class="sos-symbol"><svg class="icon"><use href="#i-shield"/></svg></div><h3>辅助联络助手</h3><p>这是手机端的独立演示流程：需要时长按屏幕按钮，经倒计时确认后准备联络信息；伞柄没有求助按键。<strong>仅辅助联络，不替代专业救援。紧急情况请拨打110/120。</strong></p></div>
             <div class="privacy-strip"><svg class="icon"><use href="#i-check"/></svg>今日自检通过 · 电量、蓝牙与 2 位联系人可用</div>
-            <button class="hold-button" id="holdSos"><svg class="icon"><use href="#i-phone"/></svg><strong>长按触发联络</strong><span>持续按住 2 秒 · 防误触设计</span></button>
+            <button class="hold-button" id="holdSos"><svg class="icon"><use href="#i-phone"/></svg><strong>长按屏幕按钮</strong><span>持续按住 2 秒 · 防误触设计</span></button>
             <div class="hold-hint">松手即取消 · 原型不会拨打电话或发送消息</div>
-            <div class="privacy-strip"><svg class="icon"><use href="#i-activity"/></svg>反馈机制：手机短震提示（演示）· 倒计时可取消；伞柄震动需后续增加马达</div>
+            <div class="privacy-strip"><svg class="icon"><use href="#i-activity"/></svg>反馈机制：手机短震提示（演示）· 倒计时可取消；伞柄不参与联络</div>
             <div class="section-head"><h3>联络助手工作流程</h3><span>可取消</span></div>
             <div class="card emergency-flow">
               <div class="flow-step"><span class="flow-number">1</span><div><strong>平时主动自检</strong><p>发现低电量、连接异常或联系人失效时提前提醒，而不是求助时才发现。</p></div></div>
@@ -1193,7 +1193,7 @@
         if (plan === 'shelter') showShelterPlan();
         if (plan === 'borrow') showSharedUmbrella();
         if (plan === 'home') showSafeTrip();
-        if (plan === 'emergency') { navigate('emergency'); showToast('已打开联络助手，需要时长按触发'); }
+        if (plan === 'emergency') { navigate('emergency'); showToast('已打开手机端联络助手'); }
       }));
       document.getElementById('lostStandby').addEventListener('click', showStandbyOptions);
 
@@ -1271,8 +1271,8 @@
       document.getElementById('emergencySettings').addEventListener('click', () => {
         openSheet(`
           <div class="sheet-title"><h3>联络助手说明</h3>${closeButton}</div>
-          <p class="sheet-copy">平时主动检查电量、蓝牙与联系人状态。伞柄长按通过蓝牙通知手机，手机用震动确认（演示）；10 秒倒计时内可取消。基础版无手机或断连时无法远程联络。</p>
-          <div class="sheet-options"><div class="sheet-option"><span>确认方式</span><strong>手机震动（演示）；伞柄震动需增加马达</strong></div><div class="sheet-option"><span>倒计时</span><strong>10 秒 · 逐渐加密</strong></div><div class="sheet-option"><span>位置共享</span><strong>仅联络确认后</strong></div><div class="sheet-option"><span>电话拨打</span><strong>需用户再次确认</strong></div></div>
+          <p class="sheet-copy">本页仅在手机屏幕上演示联络流程，不由伞柄触发；伞柄无求助按键。手机震动确认与 10 秒倒计时均为模拟，倒计时内可取消。</p>
+          <div class="sheet-options"><div class="sheet-option"><span>确认方式</span><strong>手机屏幕确认与震动（演示）</strong></div><div class="sheet-option"><span>倒计时</span><strong>10 秒 · 逐渐加密</strong></div><div class="sheet-option"><span>位置共享</span><strong>仅联络确认后</strong></div><div class="sheet-option"><span>电话拨打</span><strong>需用户再次确认</strong></div></div>
           <p class="sheet-copy">本页面是流程演示，不会访问通讯录、发送短信、共享位置或拨打电话。仅辅助联络，不替代专业救援。紧急情况请拨打110/120。</p>
           <div class="sheet-actions"><button class="primary-button" data-close-sheet>了解</button></div>`);
       });

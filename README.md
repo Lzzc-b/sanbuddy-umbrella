@@ -7,7 +7,7 @@
 围绕两件小事展开：**出门忘带伞**，以及 **伞落在别处找不回**。  
 当前为学生项目版：**方案 + 可交互原型 + 真伞最小验证 + Git 过程留痕**，本阶段不开展真实收费。
 
-[产品方案 V4.1](plans/product-plan-v4.1-student.md) · [实施指南](plans/implementation-guide.md) · [在线体验](https://sanbuddy-umbrella.pages.dev/) · [可交互原型](prototype/sanbuddy-prototype-v4.html)
+[产品方案 V4.1](plans/product-plan-v4.1-student.md) · [实施指南](plans/implementation-guide.md) · [一体式伞柄施工说明](plans/hardware-build-spec-v1.md) · [在线体验](https://sanbuddy-umbrella.pages.dev/) · [可交互原型](prototype/sanbuddy-prototype-v4.html)
 
 ---
 
@@ -111,6 +111,7 @@
 | --- | --- |
 | [`plans/product-plan-v4.1-student.md`](plans/product-plan-v4.1-student.md) | 完整产品方案（学生项目版） |
 | [`plans/implementation-guide.md`](plans/implementation-guide.md) | 执行手册（含 Cloudflare Pages / PWA） |
+| [`plans/hardware-build-spec-v1.md`](plans/hardware-build-spec-v1.md) | 一体式伞柄的工程设计输入与施工、验收说明（尚非已完成样机） |
 | [`AGENTS.md`](AGENTS.md) | 协作者 / AI 仓库约定 |
 | [`LICENSE`](LICENSE) | MIT |
 | [`prototype/sanbuddy-prototype-v4.html`](prototype/sanbuddy-prototype-v4.html) | 可交互原型（V4，本地双击或 Pages 打开） |
