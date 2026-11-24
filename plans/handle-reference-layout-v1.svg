@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 680" role="img" aria-labelledby="title desc">
+  <title id="title">伞伴一体式伞柄参考布置图 V1</title>
+  <desc id="desc">以FARE 1182已公开的10毫米伞杆为机械参考，显示待验证的34毫米直径、110毫米长伞柄占位，以及机械区、隔板、电子区、电池盖分区。这不是施工图。</desc>
+  <defs>
+    <style>
+      text { font-family: 'Microsoft YaHei', Arial, sans-serif; fill:#203a34; }
+      .title { font-size:25px; font-weight:700; }
+      .sub { font-size:14px; fill:#53675f; }
+      .note { font-size:14px; }
+      .small { font-size:12px; fill:#53675f; }
+      .dim { stroke:#bd613b; stroke-width:1.5; fill:none; marker-start:url(#arrow); marker-end:url(#arrow); }
+      .leader { stroke:#44635b; stroke-width:1.6; fill:none; }
+      .outline { stroke:#193c34; stroke-width:3; fill:none; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,5 L10,0 L10,10 Z" fill="#bd613b"/></marker>
+  </defs>
+  <rect width="960" height="680" fill="#f7f7f1"/>
+  <text class="title" x="42" y="44">伞伴一体式伞柄：参考布局剖面</text>
+  <text class="sub" x="42" y="70">唯一来自参考产品的接口值：伞杆外径 Ø10 mm；其余尺寸为本项目占位假设，实物测绘后重出图。</text>
+
+  <!-- nominal 4 px/mm; shaft diameter 10, handle diameter 34, overall handle length 110 -->
+  <rect x="248" y="105" width="40" height="145" fill="#a5b2af" stroke="#344d47" stroke-width="2"/>
+  <rect x="200" y="160" width="136" height="440" rx="15" fill="#e5ebe6" stroke="#193c34" stroke-width="3"/>
+  <rect x="208" y="168" width="120" height="112" rx="7" fill="#d7e0dd"/>
+  <rect x="208" y="280" width="120" height="16" fill="#48675f"/>
+  <rect x="208" y="296" width="120" height="200" fill="#d6eee5"/>
+  <rect x="208" y="496" width="120" height="96" rx="6" fill="#ebe4cf"/>
+  <rect x="250" y="168" width="36" height="90" fill="#a5b2af" stroke="#344d47" stroke-width="1.5"/>
+  <rect x="215" y="210" width="27" height="23" rx="4" fill="#90a89f" stroke="#344d47"/>
+  <rect x="227" y="322" width="82" height="102" rx="5" fill="#3f7565" stroke="#24483c" stroke-width="2"/>
+  <rect x="234" y="333" width="68" height="80" fill="#b1d3ba"/>
+  <circle cx="270" cy="450" r="27" fill="#c0d2c0" stroke="#3e6759" stroke-width="2"/>
+  <rect x="226" y="520" width="84" height="13" rx="6" fill="#c6b48b" stroke="#896c40"/>
+  <rect x="208" y="558" width="120" height="12" fill="#bc7453"/>
+  <line x1="208" y1="570" x2="328" y2="570" stroke="#193c34" stroke-width="2"/>
+  <rect x="210" y="585" width="116" height="6" fill="#91cc9d"/>
+
+  <!-- dimensions -->
+  <line class="dim" x1="165" y1="160" x2="165" y2="600"/>
+  <text class="note" x="95" y="382">110 mm*</text>
+  <line class="dim" x1="200" y1="625" x2="336" y2="625"/>
+  <text class="note" x="235" y="649">Ø34 mm*</text>
+  <line class="dim" x1="248" y1="118" x2="288" y2="118"/>
+  <text class="note" x="232" y="102">Ø10 mm¹</text>
+  <line class="dim" x1="370" y1="160" x2="370" y2="280"/>
+  <text class="small" x="382" y="225">30 mm* 机械区</text>
+  <line class="dim" x1="370" y1="280" x2="370" y2="296"/>
+  <text class="small" x="382" y="291">4 mm* 隔板</text>
+  <line class="dim" x1="370" y1="296" x2="370" y2="496"/>
+  <text class="small" x="382" y="400">50 mm* 电子区</text>
+  <line class="dim" x1="370" y1="496" x2="370" y2="600"/>
+  <text class="small" x="382" y="550">26 mm* 电池盖区</text>
+
+  <path class="leader" d="M225 220 L85 220 L85 190"/>
+  <text class="note" x="42" y="182">原机械开伞键位置待测</text>
+  <path class="leader" d="M270 360 L620 360 L620 338"/>
+  <text class="note" x="628" y="344">BLE PCB 与天线净空待排布</text>
+  <path class="leader" d="M270 450 L620 450 L620 428"/>
+  <text class="note" x="628" y="434">压电片贴内壁，声量待测</text>
+  <path class="leader" d="M270 526 L620 526 L620 504"/>
+  <text class="note" x="628" y="510">CR2032 电池座待选型</text>
+  <path class="leader" d="M275 565 L620 565 L620 545"/>
+  <text class="note" x="628" y="551">底盖 O 型圈槽待计算</text>
+  <path class="leader" d="M320 588 L620 588 L620 570"/>
+  <text class="note" x="628" y="576">壳体连续透光区，无灯孔</text>
+
+  <rect x="42" y="653" width="873" height="22" fill="#fff0e7"/>
+  <text class="small" x="50" y="669">¹ FARE 1182 公开标称伞杆直径；* 本项目占位假设。未获实物接口、CAD、公差链和密封实测，不可下料或宣称防水等级。</text>
+</svg>

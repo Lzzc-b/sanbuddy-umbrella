@@ -47,6 +47,8 @@
 
 以下为[远期一体式伞柄的工程设计输入](plans/hardware-design-input-v1.md)，对应[外观概念图](prototype/hardware/concept.jpg)和[爆炸示意图](prototype/hardware/exploded.jpg)；目前没有该伞柄的施工图或样机。
 
+工程设计输入采用 [FARE 1182 自动开伞直柄](https://www.fare.de/de/AC.Stockschirm.FARE.Collection.Square-grau--1182/)作为公开机械参考，并附有[带尺寸标注的占位布置图](plans/handle-reference-layout-v1.svg)和[伞柄立体概念图](plans/handle-3d-concept-v1.png)。图中仅 10 mm 伞杆直径来自公开产品资料，其余尺寸待实物测绘，布置图和立体概念图不可直接用于加工。
+
 ```text
 伞面 / 伞骨 / 伞杆     → 挡雨与结构（优先级最高）
 可拆卸智能伞柄         → BLE · 蜂鸣器 · LED · 无源 NFC · CR2032
